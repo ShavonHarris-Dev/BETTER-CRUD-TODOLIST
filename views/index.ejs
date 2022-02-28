@@ -19,9 +19,9 @@
 </head>
 <body>
     <h1>Todo List: </h1>
-     <!-- //if item is completed add the span completed if not completed regualr span -->
-    <!-- thing property -->
-    <ul class="todoItems">
+     <!-- if item is completed add the span completed if not completed regualr span -->
+   
+     <ul class="todoItems">
     <% for(let i=0; i < items.length; i++) {%>
         <li class="item">
             <% if(items[i].completed === true) {%>
@@ -47,3 +47,18 @@
     <script src='js/main.js'></script>
 </body>
 </html>
+
+<!-- 
+app.get('/',async (request, response)=>{
+    const todoItems = await db.collection('todos').find().toArray()
+    const itemsLeft = await db.collection('todos').countDocuments({completed: false})
+    response.render('index.ejs', { items: todoItems, left: itemsLeft })
+    // db.collection('todos').find().toArray()
+    // .then(data => {
+    //     db.collection('todos').countDocuments({completed: false})
+    //     .then(itemsLeft => {
+    //         response.render('index.ejs', { items: data, left: itemsLeft })
+    //     })
+    // })
+    // .catch(error => console.error(error))
+}) -->
